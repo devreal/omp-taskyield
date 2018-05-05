@@ -43,6 +43,7 @@ int main(int argc, char **argv)
           printf("UNKNOWN: flag_one_cntr: %d, flag_two_cntr: %d\n", flag_one_cntr, flag_two_cntr);
         }
       }
+      // quirk for Cray compiler
       (void)flag_two_cntr;
 #pragma omp taskyield
       ++flag_two_cntr;
