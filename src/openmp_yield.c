@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 #pragma omp parallel
 #pragma omp master
   for (int i = 0; i < NUM_TASKS+omp_get_num_threads()-1; ++i) {
-#pragma omp task firstprivate(i)
+#pragma omp task untied firstprivate(i)
 {
     if (omp_get_thread_num() > 0) {
       // trap all but thread 0
