@@ -7,11 +7,11 @@
 
 #define VERBOSE
 
+static volatile int flag_one_cntr = 0;
+static volatile int flag_two_cntr = 0;
 
 int main(int argc, char **argv)
 {
-  volatile int flag_one_cntr = 0;
-  volatile int flag_two_cntr = 0;
 #pragma omp parallel
 #pragma omp master
   for (int i = 0; i < NUM_TASKS+omp_get_num_threads()-1; ++i) {
